@@ -1,0 +1,46 @@
+interface ObserverSubject {
+    + registerObserver()
+    + removeObserver()
+    + notifyObservers()
+}
+
+class WeatherData implements ObserverSubject {
+    + registerObserver()
+    + removeObserver()
+    + notifyObservers()
+    + getTemperature()
+    + getHumidity()
+    + getPressure()
+}
+
+interface Observer {
+    + update(temperature, humidity, pressure)
+}
+
+class WeatherObserver implements Observer {
+    + update(temperature, humidity, pressure)
+    + get_weatherData()
+}
+
+interface Display {
+    + display()
+}
+
+class DisplayNow implements Display {
+    + display()
+    + update_info()
+}
+
+class DisplayFuture implements Display {
+    + display()
+    + update_info()
+}
+
+class DisplayStat implements Display {
+    + display()
+    + update_info()
+}
+
+
+Display -- WeatherObserver
+Observer -- ObserverSubject
